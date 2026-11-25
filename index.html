@@ -1,69 +1,23 @@
 <!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>GHCI 2027 | Personal Career Switch Tracker</title>
-<style>
-:root{--bg:#0b1020;--panel:#141d32;--panel2:#1b2842;--line:#30405f;--text:#f2f5ff;--muted:#aab7d0;--accent:#9485ff;--green:#43d6a5}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 12% 0,#292252 0,transparent 34%),var(--bg);color:var(--text);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}.wrap{max-width:1080px;margin:auto;padding:24px 16px 56px}.hero{padding:26px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(130deg,#29204e,#172941 75%,#153640)}.eyebrow{font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:#c9c1ff;font-weight:800}.hero h1{font-size:clamp(29px,5vw,46px);line-height:1.05;margin:10px 0}.hero p{color:#d6def0;max-width:760px;margin:0}.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:17px}.pill{border:1px solid #566080;border-radius:999px;padding:5px 10px;font-size:12px;color:#e6eaff}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:11px;margin:15px 0}.stat,.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px}.stat b{display:block;font-size:25px}.muted,.stat span,.small{color:var(--muted);font-size:12px}.progress{height:8px;border-radius:99px;background:#2c3955;overflow:hidden;margin-top:9px}.bar{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--green));transition:width .2s}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}.tabs button,button{background:var(--panel2);border:1px solid var(--line);border-radius:999px;padding:10px 14px;color:var(--text);font-weight:650;cursor:pointer}.tabs button.active{background:var(--accent);border-color:var(--accent)}.grid{display:grid;grid-template-columns:1.1fr .9fr;gap:14px}.hidden{display:none}.head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px}.head h2,.card h2{font-size:19px;margin:0}.task{display:flex;align-items:flex-start;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}.task:last-child{border:0}.task input{width:18px;height:18px;margin-top:3px;accent-color:var(--green)}.task label{flex:1;cursor:pointer}.task.done .taskname{text-decoration:line-through;color:#8c9ab7}.meta{display:block;color:var(--muted);font-size:12px;margin-top:3px}.tag{font-size:11px;color:#ddd8ff;background:#342e63;padding:3px 8px;border-radius:99px;white-space:nowrap}.week{padding:11px 0;border-bottom:1px solid var(--line)}.week:last-child{border:0}.week b{display:block}.week span{color:var(--muted);font-size:12px}.field{width:100%;background:#0e1729;border:1px solid var(--line);border-radius:11px;color:var(--text);padding:11px;font:inherit}textarea.field{min-height:115px;resize:vertical}.btnrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.eventrow{display:grid;grid-template-columns:100px 1fr;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}.eventrow b{display:block}.eventrow span{color:#c9c0ff;font-weight:750}.eventrow small{color:var(--muted)}footer{text-align:center;color:var(--muted);font-size:12px;margin-top:20px}@media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}.wrap{padding:14px 11px 40px}.hero{padding:21px}}
-</style></head>
-<body><main class="wrap">
-<header class="hero"><div class="eyebrow">Your personal career-switch mission</div><h1>GHCI ’27<br>Career Switch Tracker</h1><p>Prepare for GHCI Day 1 on 20 January 2027 — and use the event as a milestone in your move to a Full-Stack React + Node.js role.</p><div class="pills"><span class="pill">Target: ₹14–18 LPA</span><span class="pill">Experience: ~2.5 years</span><span class="pill">Study time: 2 hours/day</span><span class="pill">Pass: Early Career · Day 1</span></div></header>
-<section class="stats"><div class="stat"><b id="completed">0</b><span>Tasks completed</span></div><div class="stat"><b id="total">0</b><span>Total tasks</span></div><div class="stat"><b id="percent">0%</b><span>Overall progress</span><div class="progress"><div class="bar" id="bar"></div></div></div><div class="stat"><b>20 Jan</b><span>GHCI Day 1 · KTPO, Whitefield</span></div></section>
-<nav class="tabs"><button class="active" data-tab="plan">Preparation plan</button><button data-tab="event">Event-day checklist</button><button data-tab="notes">Contacts & notes</button></nav>
-<section id="plan" class="tab"><div class="grid"><div class="card"><div class="head"><h2>Preparation checklist</h2><span class="tag">Tick as you finish</span></div><div id="planList"></div></div><div class="card"><h2>Weekly focus</h2>
-<div class="week"><b>Week 1 · Positioning & baseline</b><span>Resume audit, 3 Zeliot project stories, JS diagnostic.</span></div>
-<div class="week"><b>Week 2 · JavaScript + DSA</b><span>Closures, promises, event loop, arrays, strings, hash maps.</span></div>
-<div class="week"><b>Week 3 · React</b><span>Hooks, rendering, performance, state and component architecture.</span></div>
-<div class="week"><b>Week 4 · Node.js + APIs</b><span>Event loop, middleware, auth, validation, security, caching.</span></div>
-<div class="week"><b>Week 5 · Data + system design</b><span>SQL, indexing, Redis, API design and two system-design exercises.</span></div>
-<div class="week"><b>Week 6 · Portfolio project</b><span>Deploy one full-stack project; document architecture, tests and trade-offs.</span></div>
-<div class="week"><b>Week 7 · Interview practice</b><span>Mock interviews, targeted applications and feedback.</span></div>
-<div class="week"><b>Week 8 · GHCI readiness</b><span>Research companies, plan conversations, practise pitch and logistics.</span></div>
-<p class="small">Keep the two-hour daily routine sustainable: 40 min learning, 35 min coding/DSA, 30 min implementation, 15 min career activity.</p></div></div></section>
-<section id="event" class="tab hidden"><div class="grid"><div class="card"><div class="head"><h2>20 January checklist</h2><span class="tag">On the day</span></div><div id="eventList"></div></div><div class="card"><h2>Personal targets</h2><p class="small">These are your own goals, not guaranteed event services or hiring outcomes.</p><div id="targetList"></div><p class="small">Prioritise quality conversations. Ask about relevant openings, teams and the correct application process; don't assume on-the-spot interviews are available.</p></div></div></section>
-<section id="notes" class="tab hidden"><div class="grid"><div class="card"><h2>People & conversations</h2><p class="small">Capture name, company, role, discussion and next step.</p><textarea class="field" id="contacts" placeholder="Name — Company — Role&#10;What we discussed&#10;Next step / job link / follow-up date"></textarea></div><div class="card"><h2>Takeaways & follow-ups</h2><textarea class="field" id="takeaways" placeholder="Session notes, useful ideas, engineering insights..."></textarea><div style="height:10px"></div><textarea class="field" id="followups" placeholder="Follow up with...&#10;Apply to...&#10;Send portfolio to..."></textarea></div></div><div class="btnrow"><button id="export">Download backup</button><button id="reset">Reset tracker</button></div></section>
-<footer>Checklist and notes save in this browser on this device. Use Download backup to keep a copy. Confirm final event schedule and activities with GHCI before attending.</footer>
-</main>
-<script>
-const prep=[
-["Upload and audit current resume","Profile","Tailor it to Full-Stack React + Node roles."],
-["Write 3 strong Zeliot project stories","Profile","Problem, ownership, architecture, challenge, solution and impact."],
-["Complete JavaScript baseline assessment","JavaScript","Closures, promises, event loop, scope and arrays."],
-["Solve 15–20 focused DSA problems","DSA","Arrays, strings, hash maps, two pointers and sliding window."],
-["Revise React fundamentals","React","Hooks, rendering, state, component design and effects."],
-["Practise React performance and architecture","React","Memoisation, code splitting, data fetching and error states."],
-["Revise Node.js fundamentals","Node.js","Event loop, async patterns, middleware and error handling."],
-["Build and test secure REST APIs","Backend","Auth, validation, rate limiting, logging and API design."],
-["Revise SQL, Redis and caching","Data","Joins, indexes, transactions and cache invalidation."],
-["Complete 2 system-design exercises","System design","Requirements, APIs, data model, scaling and trade-offs."],
-["Deploy one full-stack portfolio project","Portfolio","Live demo, GitHub README, architecture diagram and tests."],
-["Complete 5–8 mock interviews","Interview","JS/DSA, React, Node, system design and project deep dive."],
-["Apply to 20–30 well-matched roles","Job search","Track job link, date, referral, status and feedback."],
-["Build a list of 20–30 relevant GHCI contacts","Networking","Research engineers, recruiters and engineering managers."],
-["Prepare a 30-second introduction","Networking","Explain experience, stack, impact and target role."],
-["Prepare 5 thoughtful recruiter questions","Networking","Teams, role expectations, hiring process and suitable openings."],
-["Confirm ticket, ID and travel plan","Logistics","Keep ticket QR private; verify final event instructions."]
-];
-const event=[
-["Carry District ticket QR and valid photo ID","Logistics","Your ticket is for Day 1, 20 January 2027."],
-["Arrive early and check registration instructions","Logistics","Confirm venue entry details before the event."],
-["Attend relevant career and technical sessions","Sessions","Capture practical takeaways and speaker names."],
-["Visit relevant expo booths / complete Expo Quest if offered","Expo","Ask about engineering teams and hiring channels."],
-["Have 5 meaningful company or recruiter conversations","Networking","Explain your target role and ask about suitable openings."],
-["Connect with 10–15 relevant professionals","Networking","Personalise connection requests."],
-["Share resume or portfolio when invited","Portfolio","Have a QR/link ready; avoid unsolicited mass sharing."],
-["Record names and agreed next steps","Follow-up","Write notes immediately after each conversation."],
-["Send follow-ups within 24–48 hours","Follow-up","Thank them and reference your actual conversation."]
-];
-const targets=[["Recruiter/company conversations",5],["Relevant professional connections",15],["Potential role leads",3],["Follow-up commitments",5]];
-const storeKey="ghci27_personal_tracker_v2";let s=JSON.parse(localStorage.getItem(storeKey)||"{}");s.checks ||= {};s.notes ||= {};
-function persist(){localStorage.setItem(storeKey,JSON.stringify(s));stats()}
-function makeList(items,prefix,el){el.innerHTML="";items.forEach((t,i)=>{let id=prefix+i,row=document.createElement("div");row.className="task"+(s.checks[id]?" done":"");row.innerHTML=`<input type="checkbox" id="${id}" ${s.checks[id]?"checked":""}><label for="${id}"><span class="taskname"></span><span class="meta"></span></label><span class="tag"></span>`;row.querySelector(".taskname").textContent=t[0];row.querySelector(".meta").textContent=t[2];row.querySelector(".tag").textContent=t[1];row.querySelector("input").onchange=e=>{s.checks[id]=e.target.checked;persist();row.classList.toggle("done",e.target.checked)};el.append(row)})}
-function stats(){let n=Object.values(s.checks).filter(Boolean).length,total=prep.length+event.length,p=Math.round(n/total*100);document.getElementById("completed").textContent=n;document.getElementById("total").textContent=total;document.getElementById("percent").textContent=p+"%";document.getElementById("bar").style.width=p+"%"}
-makeList(prep,"p",document.getElementById("planList"));makeList(event,"e",document.getElementById("eventList"));makeList(targets.map(t=>[`${t[0]} · target ${t[1]}`,"Goal","Tick when achieved."]),"g",document.getElementById("targetList"));
-["contacts","takeaways","followups"].forEach(id=>{let x=document.getElementById(id);x.value=s.notes[id]||"";x.oninput=()=>{s.notes[id]=x.value;persist()}});
-document.querySelectorAll(".tabs button").forEach(b=>b.onclick=()=>{document.querySelectorAll(".tabs button").forEach(x=>x.classList.toggle("active",x===b));document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("hidden",x.id!==b.dataset.tab))});
-document.getElementById("export").onclick=()=>{let a=document.createElement("a"),u=URL.createObjectURL(new Blob([JSON.stringify(s,null,2)],{type:"application/json"}));a.href=u;a.download="ghci-2027-tracker-backup.json";a.click();URL.revokeObjectURL(u)};
-document.getElementById("reset").onclick=()=>{if(confirm("Clear all progress and notes? Download a backup first if needed.")){s={checks:{},notes:{}};persist();location.reload()}};stats();
-</script></body></html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b1220" />
+    <meta
+      name="description"
+      content="GHCI 2027 Career Preparation Tracker — an 8-week full-stack interview readiness and job switch command centre."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <title>GHCI 2027 · Career Command Centre</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
